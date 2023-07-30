@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controllers
+spec:
+  selector:
+    matchLabels:
+      app: controllers
+  template:
+    metadata:
+      labels:
+        app: controllers
+    spec:
+      containers:
+        - name: controllers
+          image: eduardomelle/controllers:0.0.1-SNAPSHOT
+          #resources:
+          #limits:
+          #memory: "128Mi"
+          #cpu: "500m"
+          ports:
+            - containerPort: 8080

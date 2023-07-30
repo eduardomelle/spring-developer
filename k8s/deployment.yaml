@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configuration
+spec:
+  selector:
+    matchLabels:
+      app: configuration
+  template:
+    metadata:
+      labels:
+        app: configuration
+    spec:
+      containers:
+        - name: configuration
+          image: eduardomelle/configuration:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+          #resources:
+          #limits:
+          #memory: "128Mi"
+          #cpu: "500m"
+          ports:
+            - containerPort: 8080
+          #env:
+          #- name: GREETING_PREFIX
+          #valueFrom:
+          #configMapKeyRef:
+          #name: spring-boot-configmaps-demo
+          #key: greeter.prefix
